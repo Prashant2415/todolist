@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import { dummyData } from './DummyData';
+import "../component/TodoList.css";
 const Todolist = () => {
     const [data, setData]= useState([]);
     const [add, setAdd] = useState("");
@@ -17,17 +18,17 @@ const Todolist = () => {
         setData(updateItem);
     }
   return (
-    <div>
-      <h1>To Do List</h1>
-      <div>
-        <input type='text' value={add} onChange={handleInputChange} placeholder='Enter to do'/>
-        <button onClick={handleAddButton}>Add to do</button>
+    <div className='todolist-container'>
+      <h1 className='title'>To Do List</h1>
+      <div className='input-container'>
+        <input className='input-field' type='text' value={add} onChange={handleInputChange} placeholder='Enter to do'/>
+        <button className='button-field' onClick={handleAddButton}>Add to do</button>
       </div>
       {
         data.map((d, index)=>{
             return(
-                <div>
-                    <li key={d.id}>
+                <div className='result-div'>
+                    <li className='display-list' key={d.id}>
                         {d.name}
                         <button onClick={()=>{deleteItem(d.id)}}>clear</button>
                     </li>
