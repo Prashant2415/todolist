@@ -1,36 +1,45 @@
 .todolist-container{
-    width: 50rem;
-    height: 30rem;
+    width: 40rem;
+    height: 50rem;
+    background-color: lightgray;
 }
 .title{
     display: flex;
     justify-content: center;
+    font-size: 50px;
     font-weight: 800;
+    font-family: sans-serif;
 }
-.input-container{
-    margin: 0rem 0rem 2rem 0rem;
+.inner-container{
+    height: 4rem;
+}
+.add-task-button{
     display: flex;
+    margin: 1rem 0rem 0rem 2rem;
+    position: absolute;
+    width: 5rem;
+    height: 2rem;
     justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    background-color: blue;
+    color: white;
 }
 .input-field{
-    width: 30rem;
+    width: 32rem;
     height: 2rem;
-    margin: 0rem 2rem 0rem 0rem;
-    padding: 0px 0px 0px 10px;
+    margin: 0rem 0rem 0rem 2rem;
 }
-.button-field{
-    padding: 10px;
+.add-button{
+    width: 3rem;
+    height: 2rem;
+    background-color: blue;
+    color: white;
+    font-weight: 700;
+    float: right;
+    margin: 0rem 1rem 0rem 0rem;
 }
-.display-list{
-    display: flex;
-    gap: 31rem;
-    margin: 0rem 0rem 1rem 0rem;
-}
-.result-div{
-    display: flex;
-    justify-content: center;
-}
-.result-value{
-    display: flex;
-    gap: 32px;
+.display-container{
+    margin: 0rem 0rem 0rem 2rem;
+    list-style-type: none;
 }

@@ -1,41 +1,49 @@
-import React, { useState } from 'react'
-import { dummyData } from './DummyData';
-import "../component/TodoList.css";
+import React from 'react'
+import { useState } from 'react';
+import "../component/Todolist.css";
 const Todolist = () => {
-    const [data, setData]= useState([]);
-    const [add, setAdd] = useState("");
-    const handleInputChange = (e) =>{
-        setAdd(e.target.value);
+    const [inputBox, setInputBox] = useState();
+    const handleAddTask = () =>{
+        setInputBox(true);
     }
-    const handleAddButton = ()=>{
-        if(add.trim === "") return
-        const newData = {id: data.length + 1 , name: add};
-        setData([...data, newData]);
-        setAdd("");
+    console.log(inputBox)
+    //const datas = [{id:1 , name: "Prashant"},{id:2 , name: "Sonu"}]
+    const [datas, setDatas] = useState([])
+    const [inputData , setInputData] = useState("")
+    const handleInputChange =(e) =>
+    {
+        setInputData(e.target.value)
     }
-    const deleteItem = (id)=>{
-        const updateItem = data.filter(i => i.id !== id);
-        setData(updateItem);
+    const handleAddNew =(e)=>{
+        if(inputData.trim === "") return
+        const newData = {id: datas.length + 1 , name: inputData};
+        setDatas([...datas,newData])
+        setInputData("");
+        setInputBox(false);
     }
   return (
     <div className='todolist-container'>
-      <h1 className='title'>To Do List</h1>
-      <div className='input-container'>
-        <input className='input-field' type='text' value={add} onChange={handleInputChange} placeholder='Enter to do'/>
-        <button className='button-field' onClick={handleAddButton}>Add to do</button>
+        <h1 className='title'>To Do List</h1>
+      <div className='inner-container'>
+        <button className='add-task-button' onClick={handleAddTask}>Add Task</button>
       </div>
-      {
-        data.map((d, index)=>{
+      <br/>
+      {inputBox ?
+        <form className='input-container'>
+            <input className='input-field' type='text' value={inputData} onChange={handleInputChange} placeholder='Enter your to do'/>
+            <button className='add-button' onClick={handleAddNew}>Add</button>
+        </form>
+      : ""}
+      <br/>
+      <div className='display-container'>
+        {datas.map((data,index)=>{
             return(
-                <div className='result-div'>
-                    <li className='display-list' key={d.id}>
-                        {d.name}
-                        <button onClick={()=>{deleteItem(d.id)}}>clear</button>
-                    </li>
+                <div className='display-result'>
+                    <li key={index.id}>{data.name}</li>
                 </div>
             )
-        })
-      }
+        })}
+      </div>
     </div>
   )
 }
