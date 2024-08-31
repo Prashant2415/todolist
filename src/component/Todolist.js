@@ -39,7 +39,9 @@ const Todolist = () => {
         {datas.map((data,index)=>{
             return(
                 <div className='display-result'>
-                    <li key={index.id}>{data.name}</li>
+                    <input type='radio'/>
+                    <li className='display-task' key={index.id}>{data.name}</li>
+                    <button className='cross-button'>x</button>
                 </div>
             )
         })}

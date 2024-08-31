@@ -43,3 +43,15 @@
     margin: 0rem 0rem 0rem 2rem;
     list-style-type: none;
 }
+.display-result{
+    display: flex;
+    margin: 0rem 0rem 1rem 0rem;
+}
+.display-task{
+    margin: 0rem 0rem 0rem 1rem;
+    width: 33rem;
+}
+.cross-button{
+    float: right;
+    margin: 0rem 1rem 0rem 0rem;   
+}
